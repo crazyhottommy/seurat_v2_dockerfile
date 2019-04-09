@@ -1,6 +1,4 @@
-# See: http://phusion.github.io/baseimage-docker/
-# baseimage is an docker friendly version of ubuntu
-FROM phusion/baseimage:0.10.1
+## see https://github.com/openanalytics/r-base/blob/master/Dockerfile
 FROM r-base:3.5.1
 
 RUN Rscript -e "install.packages("Seurat")"
