@@ -2,6 +2,7 @@
 FROM r-base:3.5.1
 
 # devtools needs this
+RUN apt-get update
 RUN apt-get install -y openssl
 
 ## important to have single quote around the pacakge names, double quotes will fail
