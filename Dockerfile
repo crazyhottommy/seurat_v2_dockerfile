@@ -2,7 +2,7 @@
 FROM r-base:3.5.1
 
 # devtools needs this
-RUN apt-get install -y openssl-devel
+RUN apt-get install -y openssl
 
 ## important to have single quote around the pacakge names, double quotes will fail
 RUN Rscript -e "install.packages('devtools')"
