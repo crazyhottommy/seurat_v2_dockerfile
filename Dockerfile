@@ -7,6 +7,9 @@ RUN apt-get install -y libssl-dev
 RUN apt-get install -y libcurl4-openssl-dev
 ## important to have single quote around the pacakge names, double quotes will fail
 RUN Rscript -e "install.packages('devtools')"
+
+# for Seurat
+RUN apt-get install libhdf5-dev
 RUN Rscript -e "devtools::install_version('Seurat', version = '2.3.3', repos = 'http://cran.us.r-project.org')"
 RUN Rscript -e "install.packages('tidyverse')"
 RUN Rscript -e "devtools::install_github('crazyhottommy/scclusteval')"
