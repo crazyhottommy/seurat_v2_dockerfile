@@ -5,7 +5,7 @@ FROM r-base:3.5.1
 RUN apt update -y && apt upgrade -y && apt-get install -y --fix-missing \
 software-properties-common \
 build-essential gcc \
-build-essential \
+build-essential 
 
 RUN apt-get -y install libssl-dev libcurl4-openssl-dev libhdf5-dev libxml2-dev
 # important to have single quote around the pacakge names, double quotes will fail
