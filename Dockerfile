@@ -2,7 +2,11 @@
 FROM r-base:3.5.1
 
 # devtools needs this
-RUN apt-get update
+RUN apt update -y && apt upgrade -y && apt-get install -y --fix-missing \
+software-properties-common \
+build-essential gcc \
+build-essential \
+
 RUN apt-get -y install libssl-dev libcurl4-openssl-dev libhdf5-dev
 ## important to have single quote around the pacakge names, double quotes will fail
 RUN Rscript -e "install.packages('devtools')"
