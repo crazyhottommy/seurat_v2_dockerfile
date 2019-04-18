@@ -3,10 +3,7 @@ FROM r-base:3.5.1
 
 # devtools needs this
 RUN apt-get update
-RUN apt-get install -y libssl-dev
-RUN apt-get install -y libcurl4-openssl-dev
-# for Seurat
-RUN apt-get install libhdf5-dev
+RUN apt-get -y install libssl-dev libcurl4-openssl-dev libhdf5-dev
 ## important to have single quote around the pacakge names, double quotes will fail
 RUN Rscript -e "install.packages('devtools')"
 RUN Rscript -e "devtools::install_version('Seurat', version = '2.3.3', repos = 'http://cran.us.r-project.org')"
