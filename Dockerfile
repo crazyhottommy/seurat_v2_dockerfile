@@ -12,4 +12,9 @@ RUN apt-get -y install libssl-dev libcurl4-openssl-dev libhdf5-dev libxml2-dev
 RUN Rscript -e "install.packages('devtools')"
 RUN Rscript -e "devtools::install_version('Seurat', version = '2.3.3', repos = 'http://cran.us.r-project.org')"
 RUN Rscript -e "install.packages('tidyverse')"
+
+RUN Rscript -e 'install.packages("BiocManager")' \
+-e 'BiocManager::install("ComplexHeatmap")' \
+-e 'BiocManager::install("BiocParallel")'
+
 RUN Rscript -e "devtools::install_github('crazyhottommy/scclusteval')"
