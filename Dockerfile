@@ -18,4 +18,4 @@ RUN Rscript -e 'install.packages("BiocManager")' \
 -e 'BiocManager::install("BiocParallel")'
 
 RUN Rscript -e "devtools::install_github('crazyhottommy/scclusteval', ref = 'seuratv2', 
-upgrade = "never)"
+upgrade = 'never')"
