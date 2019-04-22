@@ -26,11 +26,16 @@ RUN export JAVA_HOME
 RUN apt-get -y install libssl-dev libcurl4-openssl-dev libhdf5-dev libxml2-dev
 # important to have single quote around the pacakge names, double quotes will fail
 RUN Rscript -e "install.packages('devtools')"
-RUN Rscript -e "devtools::install_version('Seurat', version = '2.3.3', dependencies=TRUE,  repos = 'http://cran.us.r-project.org')"
-RUN Rscript -e "install.packages('tidyverse')"
-
 RUN Rscript -e 'install.packages("BiocManager")' \
 -e 'BiocManager::install("ComplexHeatmap")' \
--e 'BiocManager::install("BiocParallel")'
+-e 'BiocManager::install("BiocParallel")' \
+-e 'BiocManage::install("DESeq2")' \
+-e 'BiocManage::install("MAST")' \
+-e 'BiocManage::install("S4Vectors")' \
+-e 'BiocManage::install("SingleCellExperiment")' \
+-e 'BiocManage::install("SummarizedExperiment")' 
+RUN Rscript -e "devtools::install_version('Seurat', version = '2.3.3', dependencies=FALSE,  repos = 'http://cran.us.r-project.org')"
+RUN Rscript -e "install.packages('tidyverse')"
+
 
 RUN Rscript -e "devtools::install_github('crazyhottommy/scclusteval', ref = 'seuratv2', upgrade = 'never')"
