@@ -29,11 +29,11 @@ RUN Rscript -e "install.packages('devtools')"
 RUN Rscript -e 'install.packages("BiocManager")' \
 -e 'BiocManager::install("ComplexHeatmap")' \
 -e 'BiocManager::install("BiocParallel")' \
--e 'BiocManage::install("DESeq2")' \
--e 'BiocManage::install("MAST")' \
--e 'BiocManage::install("S4Vectors")' \
--e 'BiocManage::install("SingleCellExperiment")' \
--e 'BiocManage::install("SummarizedExperiment")' 
+-e 'BiocManager::install("DESeq2")' \
+-e 'BiocManager::install("MAST")' \
+-e 'BiocManager::install("S4Vectors")' \
+-e 'BiocManager::install("SingleCellExperiment")' \
+-e 'BiocManager::install("SummarizedExperiment")' 
 RUN Rscript -e "devtools::install_version('Seurat', version = '2.3.3', dependencies=FALSE,  repos = 'http://cran.us.r-project.org')"
 RUN Rscript -e "install.packages('tidyverse')"
 
