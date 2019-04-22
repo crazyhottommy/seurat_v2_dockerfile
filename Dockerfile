@@ -20,7 +20,7 @@ RUN apt-get update && \
     update-ca-certificates -f;
 
 # Setup JAVA_HOME -- useful for docker commandline
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+ENV JAVA_HOME /usr/lib/jvm/java-12-openjdk-amd64/
 RUN export JAVA_HOME
 
 RUN apt-get -y install libssl-dev libcurl4-openssl-dev libhdf5-dev libxml2-dev
