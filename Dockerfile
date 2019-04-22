@@ -7,6 +7,22 @@ software-properties-common \
 build-essential gcc \
 build-essential 
 
+# Install OpenJDK-8
+RUN apt-get update && \
+    apt-get install -y openjdk-8-jdk && \
+    apt-get install -y ant && \
+    apt-get clean;
+
+# Fix certificate issues
+RUN apt-get update && \
+    apt-get install ca-certificates-java && \
+    apt-get clean && \
+    update-ca-certificates -f;
+
+# Setup JAVA_HOME -- useful for docker commandline
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+RUN export JAVA_HOME
+
 RUN apt-get -y install libssl-dev libcurl4-openssl-dev libhdf5-dev libxml2-dev
 # important to have single quote around the pacakge names, double quotes will fail
 RUN Rscript -e "install.packages('devtools')"
