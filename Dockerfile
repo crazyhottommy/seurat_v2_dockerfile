@@ -7,9 +7,9 @@ software-properties-common \
 build-essential gcc \
 build-essential 
 
-# Install OpenJDK-8
+# Install OpenJDK-12
 RUN apt-get update && \
-    apt-get install -y openjdk-8-jdk && \
+    apt-get install -y openjdk-12-jdk && \
     apt-get install -y ant && \
     apt-get clean;
 
